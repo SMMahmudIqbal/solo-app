@@ -188,6 +188,11 @@ export function App() {
       <header className="relative z-10 flex items-center justify-between border-b border-neutral-900 pb-4">
         {/* Left: Brand & REC dot */}
         <div className="flex items-center gap-3">
+          <img 
+            src="/logo.jpg" 
+            alt="SOLO Logo" 
+            className="w-7 h-7 border border-neutral-700 object-cover shrink-0" 
+          />
           <span className="font-dot text-xl sm:text-2xl text-white tracking-widest">
             SOLO
           </span>
@@ -307,20 +312,29 @@ export function App() {
         ) : (
           /* Empty State: Calm dot-matrix glyph */
           <div className="flex flex-col items-center justify-center max-w-md mx-auto animate-fadeIn">
-            <div className="font-dot text-6xl text-neutral-700 mb-6">
-              [ 00 ]
+            <div className="relative mb-6">
+              <img 
+                src="/logo.jpg" 
+                alt="SOLO Logo" 
+                className="w-20 h-20 border border-neutral-700 object-cover shadow-2xl" 
+              />
+              <span className="absolute -top-1.5 -left-1.5 font-mono-tech text-[10px] text-white">+</span>
+              <span className="absolute -top-1.5 -right-1.5 font-mono-tech text-[10px] text-white">+</span>
+              <span className="absolute -bottom-1.5 -left-1.5 font-mono-tech text-[10px] text-white">+</span>
+              <span className="absolute -bottom-1.5 -right-1.5 font-mono-tech text-[10px] text-white">+</span>
             </div>
             <div className="font-dot text-2xl text-white tracking-widest mb-2 uppercase">
               BUFFER EMPTY
             </div>
-            <p className="font-mono-tech text-xs text-neutral-500 tracking-wider mb-8 uppercase">
-              NO TASKS IN QUEUE. CAPTURE YOUR NEXT FOCUS ITEM IN 2 SECONDS.
+            <p className="font-mono-tech text-xs text-neutral-500 tracking-wider mb-8 uppercase text-center max-w-xs">
+              NO TASKS IN QUEUE. TAP BELOW OR PRESS [N] TO CAPTURE YOUR NEXT FOCUS ITEM.
             </p>
             <button
               onClick={() => setIsCaptureOpen(true)}
-              className="px-6 py-2.5 bg-white text-black font-mono-tech text-xs font-bold uppercase hover:bg-neutral-200 transition-colors cursor-pointer"
+              className="px-6 py-2.5 bg-white text-black font-mono-tech text-xs font-bold uppercase hover:bg-neutral-200 transition-colors cursor-pointer flex items-center gap-2"
             >
-              + CAPTURE NEW TASK
+              <Plus size={14} />
+              CAPTURE FIRST TASK
             </button>
           </div>
         )}
