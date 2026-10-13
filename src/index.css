@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-main: #000000;
+    --text-main: #FFFFFF;
+    --accent-red: #D71921;
+    --muted: #888888;
+    --border-subtle: #1F1F1F;
+    --border-strong: #2A2A2A;
+  }
+
+  [data-theme="light"] {
+    --bg-main: #F5F5F5;
+    --text-main: #000000;
+    --accent-red: #D71921;
+    --muted: #666666;
+    --border-subtle: #E0E0E0;
+    --border-strong: #CCCCCC;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
+    min-height: 100dvh;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Typography Helpers */
+.font-dot {
+  font-family: 'DotGothic16', monospace, sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.font-mono-tech {
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.font-body {
+  font-family: 'Space Grotesk', -apple-system, sans-serif;
+}
+
+/* Hardware crosshair / technical glyph markers */
+.tech-crosshair {
+  position: relative;
+}
+.tech-crosshair::before {
+  content: "+";
+  position: absolute;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: #444;
+  pointer-events: none;
+}
+
+/* Dot matrix background subtle pattern */
+.bg-grid-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+[data-theme="light"] .bg-grid-dots {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.07) 1px, transparent 1px);
+}
+
+/* Dotted divider */
+.dotted-divider {
+  border-top: 1px dashed #2A2A2A;
+}
+[data-theme="light"] .dotted-divider {
+  border-top: 1px dashed #D0D0D0;
+}
+
+/* Custom scrollbars - ultra thin monochrome */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #2A2A2A;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555555;
+}
+
+/* Keyframes for Slide Transition and Matrix Fill */
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutToLeft {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-40px);
+    opacity: 0;
+  }
+}
+
+@keyframes pulseRed {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.animate-pulse-red {
+  animation: pulseRed 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-slide-in {
+  animation: slideInFromRight 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-out {
+  animation: slideOutToLeft 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
