@@ -41,7 +41,7 @@
 ## 3. Android APK File
 
 The ready-to-install Android package is available directly at:
-- Root project file: [`SOLO-v1.0.apk`](file:///C:/Users/rupai/.gemini/antigravity/scratch/solo-app/SOLO-v1.0.apk) (4.1 MB)
+- Root project file: [`SOLO-v1.0.apk`](https://github.com/SMMahmudIqbal/solo-app/releases/download/v1.0.0/SOLO-v1.0.apk) (9.1 MB)
 - Web direct download: Accessible directly from the top navigation bar pill (`APK · 4.1MB`) when running the app.
 - Build output path: `android/app/build/outputs/apk/debug/app-debug.apk`
 
